@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/layout/layout.html}">
+  <head>
+    <title>게시판</title>
+  </head>
+  <body>
+    <div class="container" id="contents" layout:fragment="contents">
+      <h2 class="mt-5 mb-3">게시판</h2>
+
+      <h2 class="mt-5 mb-3 m">게시판</h2>
+      <table class="table table-striped mt-5">
+        <colgroup>
+          <col style="width: 50px; text-align: center" />
+          <col style="text-align: left" />
+          <col style="width: 120px; text-align: center" />
+          <col style="width: 200px; text-align: center" />
+          <col style="width: 50px; text-align: center" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">no</th>
+            <th scope="col">subject</th>
+            <th scope="col">writer</th>
+            <th scope="col">date</th>
+            <th scope="col">hit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="item : ${boardList}">
+            <td scope="row" th:text="${item.no}">1</td>
+            <td class="space1" th:class="'space'+${item.reStep}">
+              <a th:href="@{/board/view(no=${item.no})}" th:text="${item.subject}" href="view.html"> 제목이 들어갑니다. </a>
+            </td>
+            <td th:text="${item.name}">글쓴 사람 이름</td>
+            <td th:text="${item.regDate}">2023.03.23</td>
+            <td th:text="${item.hit}">1</td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="/board/write"><button class="btn btn-primary">글 작성하기</button></a>
+    </div>
+  </body>
+</html>

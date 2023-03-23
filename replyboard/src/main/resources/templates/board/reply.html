@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/layout/layout.html}">
+  <head>
+    <title>게시판</title>
+  </head>
+  <body>
+    <div class="container" id="contents" layout:fragment="contents">
+      <h2 class="mt-5 mb-3">[[${replyBoardDto.no}]] 번 글에 대한 답글 작성</h2>
+
+      <form th:action="@{/board/replyProcess(no = ${replyBoardDto.no})}" method="POST" class="mt-5">
+        <!-- <input type="hidden" name="reGroup" value="${replyBoardDto.reGroup}" />
+        <input type="hidden" name="reLevel" value="${replyBoardDto.reLevel}" />
+        <input type="hidden" name="reStep" value="${replyBoardDto.reStep}" /> -->
+        <input type="hidden" name="reGroup" th:value="${param.reGroup}" />
+        <input type="hidden" name="reLevel" th:value="${param.reLevel}" />
+        <input type="hidden" name="reStep" th:value="${param.reStep}" />
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">답글 제목</label>
+          <input type="text" class="form-control" placeholder="제목을 입력하세요" name="subject" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">답글 작성자</label>
+          <input type="text" class="form-control" placeholder="작성자명을 입력하세요" name="name" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">답글 비밀번호</label>
+          <input type="password" class="form-control" placeholder="비밀번호를 입력하세요" name="password" />
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">답글 내용</label>
+          <textarea class="form-control" id="" rows="5" placeholder="내용을 입력하세요" name="contents" th:placeholder="${replyBoardDto.contents}"></textarea>
+        </div>
+
+        <div class="button text-center">
+          <button class="btn btn-primary btn-lg mt-3" type="submit">답글달기</button>
+          <button class="btn btn-secondary btn-lg mt-3" type="reset">취소</button>
+          <a href="/board/list"><button type="button" class="btn btn-secondary btn-lg mt-3">리스트로 돌아가기</button></a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

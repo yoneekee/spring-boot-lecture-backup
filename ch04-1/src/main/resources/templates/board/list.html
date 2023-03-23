@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board List</title>
+    <style>
+        .table {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1> Board List </h1>
+    <hr>
+    
+    <table class="table">
+        <colgroup>
+            <col width="100px" height="30px" style="background: #ffffff" />
+            <col width="300px" height="30px" style="background: #eeeeee" />
+            <col width="400px" height="30px" style="background: #999999" />
+            <col width="200px" height="30px" style="background: #999999" />
+        </colgroup>
+        <tr>
+            <th>이름</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>날짜</th>
+        </tr>
+ 
+        <tr th:each="board : ${boardList}">
+            <td th:text=[[${board.userName}]]></td>
+            <td th:text=[[${board.subject}]]></td>
+            <td th:text=[[${board.contents}]]></td>
+            <td th:text=[[${board.regdate}]]></td>
+        </tr>
+    </table>
+    
+</body>
+</html>

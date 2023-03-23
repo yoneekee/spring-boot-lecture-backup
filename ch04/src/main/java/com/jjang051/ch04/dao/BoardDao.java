@@ -6,7 +6,15 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface BoardDao {
-  // xml에서 설정한 id명 = 함수명
-  // Dao에서 함수 선언만 하고 Service에서 구체적인 내용 작성
   ArrayList<BoardDto> getAllBoard();
+
+  public void insertBoard(BoardDto boardDto);
+
+  public BoardDto getOneBoard(int no);
+
+  public void updateBoard(BoardDto boardDto);
+
+  public void deleteBoard(int no);
+
+  public void updateHit(int no);
 }
