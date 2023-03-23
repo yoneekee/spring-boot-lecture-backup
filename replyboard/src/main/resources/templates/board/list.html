@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/layout/layout.html}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/layout/layout.html}">
   <head>
-    <title>게시판</title>
+    <title>LIST</title>
   </head>
   <body>
-    <div class="container" id="contents" layout:fragment="contents">
-      <h2 class="mt-5 mb-3">게시판</h2>
-
+    <div layout:fragment="contents">
       <h2 class="mt-5 mb-3 m">게시판</h2>
       <table class="table table-striped mt-5">
         <colgroup>
@@ -37,7 +35,9 @@
           </tr>
         </tbody>
       </table>
-      <a href="/board/write"><button class="btn btn-primary">글 작성하기</button></a>
+      <div class="center">
+        <a href="/board/write"><button class="btn btn-primary btn-lg mt-3">글 작성하기</button></a>
+      </div>
     </div>
   </body>
 </html>
